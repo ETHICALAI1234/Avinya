@@ -93,17 +93,28 @@ def verify_grounded(
             continue
         pos = idx + len(sent)
         sent_span = Span(start=idx, end=idx + len(sent), text=sent)
+        is_refuted_raw = _spans_overlap(sent_span, hallucinated_spans)
+
         
-        is_refuted = _spans_overlap(sent_span, hallucinated_spans)
-        verdict = "REFUTED" if is_refuted else "SUPPORTED"
-        stance = "contradicting" if is_refuted else "supporting"
+        # Multi-Tier Production Arbiter: Fuses ModernBERT, NLI Cross-Encoder, and Gemini Consensus
+        from trustlens.verify.arbiter import arbitrate_claim
+        arb_res = arbitrate_claim(
+            premise=" ".join(ctx),
+            claim_text=sent,
+            modernbert_flagged=is_refuted_raw,
+            modernbert_conf=max_conf
+        )
+
+        verdict = arb_res["verdict"]
+        confidence = arb_res["confidence"]
+        stance = "contradicting" if verdict == "REFUTED" else "supporting"
 
         evidence = [
             Evidence(
                 evidence_id=f"ctx-evidence-{i}",
                 text=ctx[0][:1500] if ctx else "[No context provided]",
                 url=None,
-                title="Provided Context",
+                title="Authoritative Grounding Context",
                 stance=stance,
                 source_quality=None,
                 retrieved_at=now,
@@ -116,9 +127,10 @@ def verify_grounded(
             claim_text=sent,
             source_span=sent_span,
             verdict=verdict,
-            confidence=round(max_conf, 3),
+            confidence=round(confidence, 3),
             evidence=evidence,
-            verifier=settings.GROUNDED_MODEL if detector != "fallback" else "fallback_containment_judge",
+            verifier=f"TrustLens Hybrid-Ensemble [{arb_res['tier']}]",
         ))
 
     return verdicts
+
