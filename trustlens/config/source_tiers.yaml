@@ -1,0 +1,52 @@
+tiers:
+  high:
+    score: 0.90
+    tld_suffixes: [".gov", ".gov.in", ".gov.uk", ".edu", ".ac.uk", ".ac.in", ".int"]
+    domains:
+      - who.int
+      - nih.gov
+      - ncbi.nlm.nih.gov
+      - nature.com
+      - science.org
+      - thelancet.com
+      - arxiv.org
+      - pubmed.ncbi.nlm.nih.gov
+      - europa.eu
+      - rbi.org.in
+      - nasa.gov
+  medium:
+    score: 0.65
+    domains:
+      - reuters.com
+      - apnews.com
+      - bbc.com
+      - bbc.co.uk
+      - npr.org
+      - thehindu.com
+      - indianexpress.com
+      - en.wikipedia.org
+      - britannica.com
+      - scientificamerican.com
+  low:
+    score: 0.35
+    patterns:
+      - "blogspot."
+      - "wordpress.com"
+      - "medium.com"
+      - "substack.com"
+      - "reddit.com"
+      - "quora.com"
+      - "answers."
+      - "ezinearticles."
+  flagged:
+    score: 0.10
+    domains: []
+
+modifiers:
+  recency:
+    within_1_year: 0.05
+    older_than_5_years: -0.10
+  corroboration:
+    three_or_more_independent_domains: 0.10
+    single_source_only: -0.10
+  primary_source: 0.05

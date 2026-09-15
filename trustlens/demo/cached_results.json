@@ -1,0 +1,429 @@
+{
+  "demo-01-grounded-clean": {
+    "response_id": "demo-cache-01",
+    "mode": "grounded",
+    "model": "gpt-4o-mini",
+    "answer": "The astronauts on Apollo 11 were Neil Armstrong, Buzz Aldrin, and Michael Collins. Armstrong and Aldrin landed on the Moon while Collins remained in orbit.",
+    "overall_trust": {
+      "band": "high",
+      "score": 1.0
+    },
+    "coverage": {
+      "total_sentences": 2,
+      "checkworthy_claims": 2,
+      "claims_checked": 2,
+      "claims_with_evidence": 2
+    },
+    "counts": {
+      "SUPPORTED": 2,
+      "REFUTED": 0
+    },
+    "claims": [
+      {
+        "claim_id": 0,
+        "claim_text": "The astronauts on Apollo 11 were Neil Armstrong, Buzz Aldrin, and Michael Collins.",
+        "source_span": {
+          "start": 0,
+          "end": 81,
+          "text": "The astronauts on Apollo 11 were Neil Armstrong, Buzz Aldrin, and Michael Collins."
+        },
+        "verdict": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "evidence_id": "ctx-evidence-0",
+            "text": "Apollo 11 was the American spaceflight that first landed humans on the Moon. Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969.",
+            "url": null,
+            "title": "Provided Context",
+            "stance": "supporting",
+            "source_quality": null,
+            "retrieved_at": "2026-09-14T23:59:00Z",
+            "retrieval_query": "[grounded_context]"
+          }
+        ],
+        "verifier": "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      },
+      {
+        "claim_id": 1,
+        "claim_text": "Armstrong and Aldrin landed on the Moon while Collins remained in orbit.",
+        "source_span": {
+          "start": 82,
+          "end": 154,
+          "text": "Armstrong and Aldrin landed on the Moon while Collins remained in orbit."
+        },
+        "verdict": "SUPPORTED",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "evidence_id": "ctx-evidence-1",
+            "text": "Michael Collins flew the Command Module Columbia alone in lunar orbit.",
+            "url": null,
+            "title": "Provided Context",
+            "stance": "supporting",
+            "source_quality": null,
+            "retrieved_at": "2026-09-14T23:59:00Z",
+            "retrieval_query": "[grounded_context]"
+          }
+        ],
+        "verifier": "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      }
+    ],
+    "risk": {
+      "tier": "standard",
+      "domain": "historical",
+      "escalated": false
+    },
+    "audit": {
+      "verifier_models": [
+        "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      ],
+      "retrieval_provider": "none",
+      "started_at": "2026-09-14T23:59:00Z",
+      "completed_at": "2026-09-14T23:59:01Z",
+      "latency_ms": 312,
+      "cost_usd": 0.0001
+    }
+  },
+  "demo-02-grounded-fabrication": {
+    "response_id": "demo-cache-02",
+    "mode": "grounded",
+    "model": "gpt-4o-mini",
+    "answer": "The Apollo 11 astronauts were Neil Armstrong, Buzz Aldrin, and Michael Collins. They were accompanied on the lunar surface by Pete Conrad.",
+    "overall_trust": {
+      "band": "low",
+      "score": 0.0
+    },
+    "coverage": {
+      "total_sentences": 2,
+      "checkworthy_claims": 2,
+      "claims_checked": 2,
+      "claims_with_evidence": 2
+    },
+    "counts": {
+      "SUPPORTED": 1,
+      "REFUTED": 1
+    },
+    "claims": [
+      {
+        "claim_id": 0,
+        "claim_text": "The Apollo 11 astronauts were Neil Armstrong, Buzz Aldrin, and Michael Collins.",
+        "source_span": {
+          "start": 0,
+          "end": 79,
+          "text": "The Apollo 11 astronauts were Neil Armstrong, Buzz Aldrin, and Michael Collins."
+        },
+        "verdict": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "evidence_id": "ctx-evidence-0",
+            "text": "Apollo 11 was the American spaceflight that first landed humans on the Moon. Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969.",
+            "url": null,
+            "title": "Provided Context",
+            "stance": "supporting",
+            "source_quality": null,
+            "retrieved_at": "2026-09-14T23:59:00Z",
+            "retrieval_query": "[grounded_context]"
+          }
+        ],
+        "verifier": "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      },
+      {
+        "claim_id": 1,
+        "claim_text": "They were accompanied on the lunar surface by Pete Conrad.",
+        "source_span": {
+          "start": 80,
+          "end": 138,
+          "text": "They were accompanied on the lunar surface by Pete Conrad."
+        },
+        "verdict": "REFUTED",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "evidence_id": "ctx-evidence-1",
+            "text": "Commander Neil Armstrong and Lunar Module Pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969. Michael Collins flew the Command Module Columbia alone in lunar orbit.",
+            "url": null,
+            "title": "Provided Context",
+            "stance": "contradicting",
+            "source_quality": null,
+            "retrieved_at": "2026-09-14T23:59:00Z",
+            "retrieval_query": "[grounded_context]"
+          }
+        ],
+        "verifier": "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      }
+    ],
+    "risk": {
+      "tier": "standard",
+      "domain": "historical",
+      "escalated": false
+    },
+    "audit": {
+      "verifier_models": [
+        "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      ],
+      "retrieval_provider": "none",
+      "started_at": "2026-09-14T23:59:00Z",
+      "completed_at": "2026-09-14T23:59:01Z",
+      "latency_ms": 345,
+      "cost_usd": 0.0001
+    }
+  },
+  "demo-03-openweb-debunk": {
+    "response_id": "demo-cache-03",
+    "mode": "open_web",
+    "model": "gpt-4o-mini",
+    "answer": "The Great Wall of China is visible from space with the naked eye. It was constructed using stone, brick, and tamped earth.",
+    "overall_trust": {
+      "band": "low",
+      "score": 0.0
+    },
+    "coverage": {
+      "total_sentences": 2,
+      "checkworthy_claims": 2,
+      "claims_checked": 2,
+      "claims_with_evidence": 2
+    },
+    "counts": {
+      "REFUTED": 1,
+      "SUPPORTED": 1
+    },
+    "claims": [
+      {
+        "claim_id": 0,
+        "claim_text": "The Great Wall of China is visible from space with the naked eye.",
+        "source_span": {
+          "start": 0,
+          "end": 65,
+          "text": "The Great Wall of China is visible from space with the naked eye."
+        },
+        "verdict": "REFUTED",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "evidence_id": "ev-debunk-1",
+            "text": "Astronauts confirm that the Great Wall is not visible to the naked eye from low Earth orbit without telescopic lenses or high-magnification photography.",
+            "url": "https://www.nasa.gov/vision/space/workinginspace/great_wall.html",
+            "title": "NASA — Great Wall Visibility from Orbit",
+            "stance": "contradicting",
+            "source_quality": {
+              "band": "high",
+              "score": 0.95,
+              "reasons": ["Domain matched 'high' tier (nasa.gov)"]
+            },
+            "retrieved_at": "2026-09-14T23:59:00Z",
+            "retrieval_query": "Great Wall of China space visibility myth debunked"
+          }
+        ],
+        "verifier": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli"
+      },
+      {
+        "claim_id": 1,
+        "claim_text": "It was constructed using stone, brick, and tamped earth.",
+        "source_span": {
+          "start": 66,
+          "end": 123,
+          "text": "It was constructed using stone, brick, and tamped earth."
+        },
+        "verdict": "SUPPORTED",
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "evidence_id": "ev-sup-1",
+            "text": "The Great Wall was built over centuries with stone, brick, rammed earth, and wood.",
+            "url": "https://www.britannica.com/topic/Great-Wall-of-China",
+            "title": "Encyclopaedia Britannica — Great Wall Construction",
+            "stance": "supporting",
+            "source_quality": {
+              "band": "medium",
+              "score": 0.65,
+              "reasons": ["Domain matched 'medium' tier"]
+            },
+            "retrieved_at": "2026-09-14T23:59:00Z",
+            "retrieval_query": "Great Wall of China construction materials"
+          }
+        ],
+        "verifier": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli"
+      }
+    ],
+    "risk": {
+      "tier": "standard",
+      "domain": "scientific",
+      "escalated": false
+    },
+    "audit": {
+      "verifier_models": [
+        "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli"
+      ],
+      "retrieval_provider": "tavily",
+      "started_at": "2026-09-14T23:59:00Z",
+      "completed_at": "2026-09-14T23:59:02Z",
+      "latency_ms": 1420,
+      "cost_usd": 0.0008
+    }
+  },
+  "demo-04-critical-medical": {
+    "response_id": "demo-cache-04",
+    "mode": "grounded",
+    "model": "gpt-4o-mini",
+    "answer": "For acute bacterial sinusitis in adults, amoxicillin is given at 500 mg orally every 8 hours. The recommended maximum single dose is 2000 mg.",
+    "overall_trust": {
+      "band": "low",
+      "score": 0.0
+    },
+    "coverage": {
+      "total_sentences": 2,
+      "checkworthy_claims": 2,
+      "claims_checked": 2,
+      "claims_with_evidence": 2
+    },
+    "counts": {
+      "SUPPORTED": 1,
+      "REFUTED": 1
+    },
+    "claims": [
+      {
+        "claim_id": 0,
+        "claim_text": "For acute bacterial sinusitis in adults, amoxicillin is given at 500 mg orally every 8 hours.",
+        "source_span": {
+          "start": 0,
+          "end": 89,
+          "text": "For acute bacterial sinusitis in adults, amoxicillin is given at 500 mg orally every 8 hours."
+        },
+        "verdict": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "evidence_id": "ctx-ev-med-1",
+            "text": "Amoxicillin is recommended for acute bacterial sinusitis at 500 mg orally every 8 hours for adults.",
+            "url": null,
+            "title": "Clinical Practice Guideline",
+            "stance": "supporting",
+            "source_quality": {
+              "band": "high",
+              "score": 0.95,
+              "reasons": ["Direct verified medical guidance context"]
+            },
+            "retrieved_at": "2026-09-15T00:00:00Z",
+            "retrieval_query": "[grounded_context]"
+          }
+        ],
+        "verifier": "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      },
+      {
+        "claim_id": 1,
+        "claim_text": "The recommended maximum single dose is 2000 mg.",
+        "source_span": {
+          "start": 90,
+          "end": 137,
+          "text": "The recommended maximum single dose is 2000 mg."
+        },
+        "verdict": "REFUTED",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "evidence_id": "ctx-ev-med-2",
+            "text": "The maximum daily dose should not exceed 1000 mg per single administration.",
+            "url": null,
+            "title": "Clinical Practice Guideline",
+            "stance": "contradicting",
+            "source_quality": {
+              "band": "high",
+              "score": 0.95,
+              "reasons": ["Clinical contraindication detected in context"]
+            },
+            "retrieved_at": "2026-09-15T00:00:00Z",
+            "retrieval_query": "[grounded_context]"
+          }
+        ],
+        "verifier": "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      }
+    ],
+    "risk": {
+      "tier": "critical",
+      "domain": "medical",
+      "escalated": true
+    },
+    "audit": {
+      "verifier_models": [
+        "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      ],
+      "retrieval_provider": "none",
+      "started_at": "2026-09-15T00:00:00Z",
+      "completed_at": "2026-09-15T00:00:01Z",
+      "latency_ms": 380,
+      "cost_usd": 0.0001
+    }
+  },
+  "demo-05-agent-action-gate": {
+    "response_id": "demo-cache-05",
+    "mode": "agent_gate",
+    "model": "gpt-4o-mini",
+    "answer": "Invoice #4471 for ₹50,000 is overdue and must be transferred immediately to Vendor X.",
+    "overall_trust": {
+      "band": "low",
+      "score": 0.0
+    },
+    "coverage": {
+      "total_sentences": 1,
+      "checkworthy_claims": 1,
+      "claims_checked": 1,
+      "claims_with_evidence": 1
+    },
+    "counts": {
+      "REFUTED": 1
+    },
+    "claims": [
+      {
+        "claim_id": 0,
+        "claim_text": "Invoice #4471 for ₹50,000 is overdue and must be transferred immediately to Vendor X.",
+        "source_span": {
+          "start": 0,
+          "end": 86,
+          "text": "Invoice #4471 for ₹50,000 is overdue and must be transferred immediately to Vendor X."
+        },
+        "verdict": "REFUTED",
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "evidence_id": "ctx-inv-1",
+            "text": "Approved Vendor Invoices for Q1: Invoice #4470 for ₹25,000 (Approved), Invoice #4472 for ₹30,000 (Approved). All other invoices are invalid.",
+            "url": null,
+            "title": "Corporate ERP Ledger",
+            "stance": "contradicting",
+            "source_quality": {
+              "band": "high",
+              "score": 0.95,
+              "reasons": ["Internal financial system of record"]
+            },
+            "retrieved_at": "2026-09-15T00:00:00Z",
+            "retrieval_query": "[financial_ledger]"
+          }
+        ],
+        "verifier": "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      }
+    ],
+    "gate_decision": {
+      "decision": "BLOCK",
+      "reason": "Action blocked: 1 justification claim(s) contradicted by evidence.",
+      "policy": "financial_critical",
+      "action": "transfer ₹50,000 to Vendor X",
+      "justification": "Invoice #4471 for ₹50,000 is overdue and approved for payment."
+    },
+    "risk": {
+      "tier": "critical",
+      "domain": "financial",
+      "escalated": true
+    },
+    "audit": {
+      "verifier_models": [
+        "KRLabsOrg/lettucedect-base-modernbert-en-v1"
+      ],
+      "retrieval_provider": "none",
+      "started_at": "2026-09-15T00:00:00Z",
+      "completed_at": "2026-09-15T00:00:01Z",
+      "latency_ms": 310,
+      "cost_usd": 0.0001
+    }
+  }
+}

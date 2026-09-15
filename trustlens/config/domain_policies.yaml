@@ -1,0 +1,84 @@
+tiers:
+  critical:
+    domains: [medical, legal, financial, safety]
+    verification: full
+    min_sources: 3
+    min_source_band: medium
+    block_threshold: 0.70
+    escalate_below: 0.85
+    max_latency_ms: 30000
+  standard:
+    domains: [technical, historical, scientific, news, general]
+    verification: standard
+    min_sources: 1
+    min_source_band: low
+    block_threshold: 0.50
+    escalate_below: 0.50
+    max_latency_ms: 10000
+  low:
+    domains: [trivia, casual, creative]
+    verification: cheap
+    min_sources: 0
+    block_threshold: 0.0
+    escalate_below: 0.0
+    max_latency_ms: 2000
+
+keywords:
+  medical:
+    - symptom
+    - diagnosis
+    - dosage
+    - mg
+    - treatment
+    - disease
+    - cancer
+    - medication
+    - prescription
+    - side effect
+    - pregnant
+    - vaccine
+    - therapy
+    - overdose
+    - amoxicillin
+    - antibiotic
+    - drug
+  legal:
+    - law
+    - legal
+    - contract
+    - liability
+    - court
+    - statute
+    - sue
+    - rights
+    - regulation
+    - compliance
+    - gdpr
+    - patent
+  financial:
+    - invest
+    - stock
+    - tax
+    - loan
+    - interest rate
+    - mortgage
+    - portfolio
+    - returns
+    - crypto
+    - insurance
+    - payment
+    - transfer
+    - vendor
+    - invoice
+    - rupee
+    - dollar
+  safety:
+    - electrical
+    - wiring
+    - gas leak
+    - chemical
+    - flammable
+    - structural
+    - toxic
+    - firearm
+    - explosive
